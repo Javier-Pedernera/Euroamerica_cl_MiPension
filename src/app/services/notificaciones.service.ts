@@ -7,10 +7,10 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 export class NotificacionesService {
   //desarrollo
-  urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/notificaciones/consultar';
+  // urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/notificaciones/consultar';
   // urlObtener = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/notificaciones/obtener';
   //produccion
-  // urlConsulta = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/notificaciones/consultar';
+  urlConsulta = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/notificaciones/consultar';
   urlObtener = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/notificaciones/obtener';
 
   constructor(private http: HttpClient) { }

@@ -9,11 +9,11 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class MisDocumentosService {
 
   //desarrollo
-  urlPoliza = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/consultar-polizas';
-  urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+  // urlPoliza = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/consultar-polizas';
+  // urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
   //produccion
-  // urlPoliza = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/consultar-polizas';
-  // urlPdf = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+  urlPoliza = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/consultar-polizas';
+  urlPdf = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
 
   //urlPoliza = 'http://54.89.0.19:8080/eeaa-movil-web/rest/documentos/consultar-polizas';
   constructor(

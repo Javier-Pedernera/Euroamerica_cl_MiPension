@@ -16,11 +16,11 @@ export class AuthenticationService {
   private _storage: Storage | null = null;
   authenticationState = new BehaviorSubject(false);
   //desarrollo
-  urlLogin = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/login';
-  urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  // urlLogin = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/login';
+  // urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
   //produccion
-  // urlLogin = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/login';
-  // urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  urlLogin = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/login';
+  urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
 
   //urlLogin = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/login';
   //urlConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/consultar';

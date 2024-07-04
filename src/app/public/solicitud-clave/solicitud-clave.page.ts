@@ -20,17 +20,17 @@ export class SolicitudClavePage implements OnInit {
   private _reCaptchaId!: number;
   private SITE_ID = '6LcVu8QUAAAAAFoFJGjXNDcj16nGI3Ed4n6Z469W';
   // desarrollo
-  urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  // urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
   //produccion
-  // urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
 
   //urlConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/consultar';
 
 
   //desarrollo
-  urlRecuperar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
+  // urlRecuperar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
   //produccion
-  // urlRecuperar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
+  urlRecuperar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
 
   //urlRecuperar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/recuperar';
 

@@ -9,11 +9,11 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 
 export class LiquidacionesService {
 //desarrollo
-urlLiqConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
-urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+// urlLiqConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
+// urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
 //produccion
-  // urlLiqConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
-  // urlPdf = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+  urlLiqConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
+  urlPdf = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
 
   //urlLiqConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/liquidacion/consultar';
   constructor(

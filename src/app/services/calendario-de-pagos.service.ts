@@ -9,11 +9,11 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 export class CalendarioDePagosService {
 
   // //desarrollo
-  urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/calendario/anios';
-  urlDetalle = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/calendario/detalle';
+  // urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/calendario/anios';
+  // urlDetalle = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/calendario/detalle';
   // //produccion
-  // urlConsulta = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/calendario/anios';
-  // urlDetalle = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/calendario/detalle';
+  urlConsulta = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/calendario/anios';
+  urlDetalle = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/calendario/detalle';
 
   //urlConsulta = 'http://54.89.0.19:8080/eeaa-movil-web/rest/calendario/anios';
   //urlDetalle  = 'http://54.89.0.19:8080/eeaa-movil-web/rest/calendario/detalle';

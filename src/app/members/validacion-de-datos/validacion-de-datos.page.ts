@@ -14,8 +14,8 @@ import { Storage } from '@ionic/storage';
 })
 export class ValidacionDeDatosPage implements OnInit {
   //desarrollo
-  urlValidar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/validar';
-  // urlValidar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/validar';
+  // urlValidar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/validar';
+  urlValidar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/validar';
 
   //urlValidar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/validar';
 
