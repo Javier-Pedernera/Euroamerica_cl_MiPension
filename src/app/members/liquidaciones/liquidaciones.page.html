@@ -1,0 +1,168 @@
+<ion-content>
+    <div id="content">
+        <div class="fondo-blanco-claro">
+            <div class="container">
+                <div class="row gris-dark">
+                    <div class="col-12 mt-4">
+                        <h3>Liquidación de Pago Mensual <br/>Rentas Vitalicias</h3>
+                    </div>
+                    <div class="col-12 my-4">
+                        <h3 class="font-weight-bold">{{datos?.nombre}} <br >{{ datos?.paterno}} {{ datos?.materno}}</h3>
+                    </div>
+                    <div class="col-12">
+                        <!--start carousel-->
+                        <div>
+                            <div class="slider">
+                              <div class="slider__wrapper">
+                                <swiper-container #swiper (swiperslidechange)="slideChanged()">
+                                  <swiper-slide *ngFor="let liq of liquidaciones">
+                                    <div class="slide slider-color-2">
+                                      <div *ngIf="liq?.tieneLiq" class="row text-center slide__text">
+                                        <div class="col-12">
+                                          <h1 class="font-weight-bold">{{ liq.periodo }}</h1>
+                                        </div>
+                                        <div class="col-12">
+                                          <h2 class="font-weight-normal">N° Póliza: {{ liq.poliza }}</h2>
+                                        </div>
+                                        <div class="col-12" style="margin-top:-7.5px;">
+                                          <h1 class="font-weight-normal">Líquido a Pagar</h1>
+                                        </div>
+                                        <div class="col-12" style="margin-top:-7.5px;">
+                                          <h1 class="font-weight-bold">${{ liq.montoLiquido | number:'':'es'}}</h1>
+                                        </div>
+                                        <div class="col-12 pt-2">
+                                          <h4 class="font-weight-normal">{{liq.fechaProximoPago}}</h4>
+                                        </div>
+                                      </div>
+                                      <div *ngIf="!liq?.tieneLiq" class="row text-center slide__text">
+                                        <div class="col-12">
+                                          <h3 class="font-weight-bold">{{ liq.periodo }}</h3>
+                                        </div>
+                                        <div class="col-12">
+                                          <h4 class="font-weight-normal">{{ liq.mensaje }}</h4>
+                                        </div>
+                                        <div class="col-12 pt-2">
+                                          <h4 class="font-weight-normal">{{liq.fechaProximoPago}}</h4>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </swiper-slide>
+                                </swiper-container>
+                              </div>
+                            </div>
+                          </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid mt-3" style="background:#F4F4F4;" *ngIf="poliza?.tieneLiq">
+            <div class="row gris-dark">
+                <div class="col-11 mx-auto mt-4">
+                    <div class="row">
+                        <div class="col-11 mx-auto pb-2" style="border-bottom:#D4D6D8 1px solid;">
+                            <h3 class="font-weight-bold" style="margin-left:-15px;">Detalle de pago</h3>
+                        </div>
+                        <div class="col-11 mx-auto mt-3">
+                            <h5 class="font-weight-bold" style="margin-left:-15px;">Haberes</h5>
+                        </div>
+                        <div class="col-11 mx-auto">
+
+
+                            <div class="row" *ngFor="let hh of poliza?.haberes?.detalles">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">+ {{hh.descripcion}}</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-30px;"><span class="text-left float-left">$</span><span class="text-right float-right">{{hh.monto | number:'':'es'}}</span></h5>
+                                </div>
+                            </div>
+
+                            <div class="row pb-2" style="border-bottom:#D4D6D8 1px solid;"></div>
+
+                            <!--<div class="row">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">PENSIÓN BRUTA</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">699.150</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">+ Asignación Familiar</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">3.298</span></h5>
+                                </div>
+                            </div>
+                            <div class="row pb-2" style="border-bottom:#D4D6D8 1px solid;">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">+ Aporte Pilar Solidario</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">150.320</span></h5>
+                                </div>
+                            </div>-->
+
+                        </div>
+                        <div class="col-11 mx-auto mt-3" >
+                            <h5 class="font-weight-bold" style="margin-left:-15px;">Descuentos</h5>
+                        </div>
+                        <div class="col-11 mx-auto">
+                            <div class="row" *ngFor="let hh of poliza?.descuentos?.detalles">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">- {{hh.descripcion}}</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-30px;"><span class="text-left float-left">$</span><span class="text-right float-right">{{hh.monto | number:'':'es'}}</span></h5>
+                                </div>
+                            </div>
+
+                            <!--<div class="row">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">- Colmena Golden Cross s.a.</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">45.941</span></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">- Cotiz. Adic. de Salud</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">45.729</span></h5>
+                                </div>
+                            </div>
+                            <div class="row pb-2" style="border-bottom:#D4D6D8 1px solid;">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">- Crédito 5020</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-10px;"><span class="text-left float-left">$</span><span class="text-right float-right">45.230</span></h5>
+                                </div>
+                            </div>-->
+
+                            <div class="row pb-3 pt-3" style="border-top:#D4D6D8 1px solid;">
+                                <div class="col-9">
+                                    <h5 class="font-weight-normal" style="margin-left:-15px;">Líquido a Pagar</h5>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <h5 class="font-weight-normal text-right" style="margin-left:-30px;"><span class="text-left float-left">$</span><span class="text-right float-right">{{ poliza?.montoLiquido | number:'':'es'}}</span></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-11 mx-auto">
+                            <div class="row pb-2 pt-3">
+                                <div class="col-12 expandible-liquida">
+                                    <h3 (click)="descargarLiq()" class="font-weight-light">Liquidaciones <img src="assets/img/expandir-blanco.svg" class="float-right text-right pt-1"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

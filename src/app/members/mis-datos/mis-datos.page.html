@@ -1,0 +1,116 @@
+<ion-content>
+  <div id="content">
+    <div class="fondo-blanco-claro">
+      <div class="container">
+        <div class="row gris-dark">
+          <div class="col-9 mt-4">
+            <h3>Actualizar<br/>mis Datos</h3>
+          </div>
+          <div class="col-3 text-right">
+            <img src="assets/img/actualizar.svg" style="height:40px;width:auto;" class="mt-4">
+          </div>
+
+          <div class="col-11 mt-2 mx-auto pt-3" style="border-top:1px solid #8A999A">
+            <h4 style="margin-left:-15px;" class="font-weight-normal">Pensionado</h4>
+            <h4 style="margin-left:-15px;" class="font-weight-normal">{{ dataUsuario?.nombre }}</h4>
+          </div>
+          <div class="col-11 mt-1 mb-2 mx-auto">
+            <h4 style="margin-left:-15px;" class="font-weight-normal">Rut: {{ dataUsuario?.rut | number:'':'es' }}-{{ dataUsuario?.dv }}</h4>
+          </div>
+
+          <div class="col-12 mx-auto">
+            <div class="row">
+              <div class="col-12 mb-2">
+                <label>Dirección</label>
+                <input type="text" class="form-control" [(ngModel)]="direccion">
+              </div>
+              <div class="col-12 mb-2">
+                <label>Comuna/Ciudad</label>
+
+                <select class="form-control" value="{{idComuna}}" (change)="onSelectChange($event)" style="border: 1px solid #ced4da;border-radius: 0.25rem;">
+                  <option *ngFor="let comuna of comunas" value="{{ comuna.idComuna }}">{{ comuna.nombre }}</option>
+                </select>
+
+              </div>
+              <div class="col-12 mb-2">
+                <label>Teléfono celular</label>
+                <input type="text" minlength="9" maxlength="9" class="form-control" style="padding-left:40px;" [(ngModel)]="celular" (keyup)="validateCelular()">
+                <span style="margin:-31px 0px 0px 10px;position: absolute;">+56</span>
+              </div>
+              <div class="col-12 mb-2">
+                <label>Teléfono fijo</label>
+                <input type="text" minlength="9" maxlength="9" class="form-control" style="padding-left:40px;" [(ngModel)]="telefono" (keyup)="validateTelefono()">
+                <span style="margin:-31px 0px 0px 10px;position: absolute;">+56</span>
+              </div>
+              <div class="col-12 mb-2">
+                <label>Mail</label>
+                <input type="email" email class="form-control" [(ngModel)]="email">
+              </div>
+              <div class="col-11 mx-auto mb-2" style="background:#e9ecef; border-radius:.18rem;">
+                <div class="row">
+                  <div class="col-8 pt-2">
+                    <h4 class="font-weight-normal">Autorizo a EuroAmerica<br/> Seguros de Vida S.A. a<br/> enviar comunicaciones<br/> a este mail.</h4>
+                  </div>
+                  <div class="col-4">
+                    <div class="row">
+                      <div class="col-6 text-right">
+                        <h3 class="mt-2 font-weight-normal" style="padding-top:5px;">Sí</h3>
+                      </div>
+                      <div class="col-6">
+                        <div class="custom-control form-control-lg custom-checkbox" style="margin-left:-10px;">
+                          <input type="checkbox" class="custom-control-input" id="checkboxSi" [(ngModel)]="checkboxSi" (click) = "change1()">
+                          <label class="custom-control-label" for="checkboxSi"></label>
+                        </div>  
+
+                      </div>
+                      <div class="col-6 text-right" style="margin-top:-5px;">
+                        <h3 class="mt-1 font-weight-normal" style="padding-top:5px;">No</h3>
+                      </div>
+                      <div class="col-6" style="margin-top:-10px;">
+                        <div class="custom-control form-control-lg custom-checkbox" style="margin-left:-10px;">
+                          <input type="checkbox" class="custom-control-input" id="checkboxNo" [(ngModel)]="checkboxNo"  (click) = "change2()">
+                          <label class="custom-control-label" for="checkboxNo"></label>
+                        </div>  
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-7 mx-auto">
+                <div (click)="actualizar()" class="btn btn-primary col-12 py-2">ACTUALIZAR</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 mx-auto">
+            <div class="row">
+              <div class="col-11 mx-auto my-2">
+                <div class="row" style="border-top:#8A999A 1px solid;">
+
+                  <div class="col-12 py-3">
+                    <h2 class="gris-dark font-weight-bold">Antecedentes del <br/>Pago de Pensión</h2>
+                  </div>
+                  <div class="col-11 mt-2 mx-auto pt-3">
+                    <h3 style="margin-left:-15px;" class="font-weight-normal">Nombre Receptor</h3>
+                    <h3 style="margin-left:-15px;" class="font-weight-normal">{{ dataUsuario?.nombre}}</h3>
+                  </div>
+                  <div class="col-11 mt-1 mb-2 mx-auto">
+                    <h3 style="margin-left:-15px;" class="font-weight-normal">Rut: {{ dataUsuario?.rut | number:'':'es' }}-{{ dataUsuario?.dv }}</h3>
+                  </div>
+                  <div class="col-12 mb-2">
+                    <label>Forma de Pago</label>
+                    <input type="text" disabled="disabled" class="form-control" [(ngModel)]="formaPago">
+                  </div>
+                  <div class="col-12 mb-5">
+                    <label>Cuenta N°</label>
+                    <input type="text" disabled="disabled" class="form-control" [(ngModel)]="numeroCuenta">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

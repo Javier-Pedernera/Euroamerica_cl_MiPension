@@ -1,0 +1,53 @@
+<ion-content>
+  <div class="container-fluid" style="background:url(assets/img/image-fondo-APP-ea2020.jpg) center no-repeat;background-position: top;background-size:cover;min-height:105vh;overflow:hidden;">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center py-5">
+          <img src="assets/img/logo.png">
+        </div>
+      </div>
+      <form #form="ngForm" (ngSubmit)="login(form)" method="post">
+        <div class="row">
+          <div class="col-10 mx-auto">
+            <div class="row">
+              <div class="col-12">
+                <label class="pl-4">Rut Cliente</label>
+                <input ngModel type="text" maxlength="12" class="form-control input-login sombra" placeholder="5.123.456-7" name="rut" autofocus [(ngModel)]="rut" (keyup)="formatRut()">
+                <img src="assets/img/usuario.svg" style="margin:-70px 0px 0px 15px;">
+              </div>
+              <div class="col-12" style="margin-top:-10px;">
+                <label class="pl-4">Clave</label>
+                <input ngModel type="password" class="form-control input-login sombra" placeholder="********" name="clave" [(ngModel)]="clave">
+                <img src="assets/img/password.svg" style="margin:-70px 0px 0px 15px;">
+                <!--<a href="validacion-de-datos.html"><span class="rojo-redondo">&nbsp;</span></a>-->
+              </div>
+            </div>
+          </div>
+          <div class="col-8 mx-auto">
+            <div class="row">
+              <div class="col-12 mx-auto">
+                <!--<div class="btn btn-primary col-12 py-2" (click)="login()">INGRESAR</div>-->
+                <button type="submit" class="btn btn-primary col-12 py-2">INGRESAR</button>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-10 mx-auto">
+                <div routerLink="/solicitud-clave" routerDirection="forward" class="btn btn-default col-12 sombra">Solicitar Clave <br/>Olvidé mi Clave</div>
+              </div>
+            </div>
+            <div class="row mt-4" [hidden]=huellaOk>
+              <div class="col-10 mx-auto">
+                <div (click)="loginHuella()" class="btn btn-default col-12 ingresar-con-huella sombra">Entrar con mi<br/>Huella Digital</div>
+              </div>
+            </div>
+           <!-- <div class="row mt-4">
+              <div class="col-10 mx-auto">
+                <input type="text" value="{{ tokenPush }}"/>
+              </div>
+            </div>-->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

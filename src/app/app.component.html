@@ -1,0 +1,53 @@
+<ion-app>
+
+  <nav [hidden]=ishidden id="sidebar">
+      <ul class="list-unstyled components">
+        <h4 class="gris-dark py-1 pl-4">Revisa toda la información<br/> de tu Renta Vitalicia y<br/> mucho más!</h4>
+        <li>
+            <a routerLink="/members/dashboard" class="link">Inicio</a>
+        </li>
+        <li>
+            <a routerLink="/members/liquidaciones" class="link">Liquidaciones</a>
+        </li>
+        <li>
+            <a routerLink="/members/notificaciones" class="link">Notificaciones
+              <span *ngIf="totalNotificaciones > 0" class="badge badge-success float-right text-right" style="margin-top:-5px;">{{ totalNotificaciones }}</span>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/members/mis-documentos" class="link">Mis Documentos</a>
+        </li>
+        <li>
+            <a routerLink="/members/mis-datos" class="link">Actualizar mis Datos</a>
+        </li>
+        <li>
+            <a routerLink="/members/calendario-de-pagos" class="link">Calendario de Pagos</a>
+        </li>
+        <li>
+            <a routerLink="/members/centros-de-atencion" class="link">Centros de Atención</a>
+        </li>
+        <li style="border-bottom:1px solid transparent;">
+          <a (click)="logout()" class="link">Cerrar Sesión</a>
+        </li>
+      </ul>
+      <div class="row">
+        <div class="col-12">
+          <h3 class="font-weight-bold gris-dark pl-4 footer-telefono" style="position:absolute;bottom:-10px;">600 582 3000<br/>euroamerica.cl</h3>
+        </div>
+      </div>
+  </nav>
+
+  <nav id="nav1" [hidden]=ishidden class="navbar fixed-top" style="height:135px;background:url(assets/img/fondo-header.png)!important;background-position-y:-80px;background-size:440px 150px!important;background-position-x:center!important;">
+      <div class="">
+        <img src="assets/img/logo.png" style="height:80px;width: auto;" (click)="home()">
+      </div>
+      <div class=" text-right pt-5">
+        <button type="button" id="sidebarCollapse" class="transparent">
+            <img src="assets/img/hamburguer.svg" style="height:auto;width:25px;">
+        </button>
+        <!--div id="dismiss">cerrar</div>-->
+      </div>
+  </nav>
+
+  <ion-router-outlet id="router"></ion-router-outlet>
+</ion-app>

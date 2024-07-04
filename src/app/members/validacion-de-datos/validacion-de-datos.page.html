@@ -1,0 +1,76 @@
+<ion-content>
+
+  <div class="container-fluid" style="background:url(assets/img/fondo-header.png) center no-repeat;background-position: top;background-size:cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 py-3">
+          <img src="assets/img/logo.png" style="height:90px;width: auto;">
+        </div>
+        <div class="col-6 text-right pt-5">
+          <a routerLink="/login" routerDirection="forward" class="">
+            <img src="assets/img/volver.svg" style="height:auto;width:25px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5">
+          <h2 class="gris-medio">Validación de datos</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 mx-auto">
+          <div class="row">
+            <div class="col-12 mb-2">
+              <div class="row">
+                <div class="col-2 col-md-1">
+                  <label class="pt-2">Cel.</label>
+                </div>
+                <div class="col-10 col-md-11">
+                  <!--<input [(ngModel)]="telefono" type="text" class="form-control">-->
+
+                  <input type="text" minlength="9" maxlength="9" class="form-control" style="padding-left:40px;" [(ngModel)]="telefono" (keyup)="validateCelular()">
+                  <span style="margin:-31px 0px 0px 10px;position: absolute;">+56</span>
+
+                </div>
+              </div>
+              <div class="row" style="margin-top: 10px;">
+                <div class="col-2 col-md-1">
+                  <label class="pt-2">Mail</label>
+                </div>
+                <div class="col-10 col-md-10">
+                  <input [(ngModel)]="email" type="email" class="form-control">
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <h4 class="gris-oscuro">Ingrese su nueva clave.</h4>
+            </div>
+            <div class="col-12">
+              <input [(ngModel)]="clave" type="password" class="form-control input-login sombra-sm" placeholder="Ingresar nueva clave" autofocus (keyup)="validar()">
+              <img src="assets/img/password.svg" style="margin:-70px 0px 0px 15px;">
+            </div>
+            <div class="col-12" style="margin-top:-10px;">
+              <input [(ngModel)]="reclave" type="password" class="form-control input-login sombra-sm" placeholder="Reingresar nueva clave" (keyup)="validar()">
+              <img src="assets/img/password.svg" style="margin:-70px 0px 0px 15px;">
+            </div>
+            <div class="col-9 mx-auto">
+              <div [hidden]=ishidden (click)="actualizar()" class="btn btn-primary col-12 py-2">ACTUALIZAR</div>
+            </div>
+
+            <div class="col-12 mt-3">
+              <p class="text-left" style="line-height: 20px;">Recuerde que la clave debe ser<br/> alfanumérica entre 8 y 12 caracteres.<br/> Además debe tener mínimo una letra mayúscula.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</ion-content>

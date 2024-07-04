@@ -1,0 +1,106 @@
+<ion-content>
+  <div id="content">
+    <div class="fondo-blanco-claro">
+      <div class="container">
+        <div class="row gris-dark">
+          <div class="col-9 mt-4">
+            <h3>Mis Documentos</h3>
+          </div>
+          <div class="col-3 text-right">
+            <img src="assets/img/documentos-rojo.svg" style="height:45px;width:auto;" class="my-3">
+          </div>
+          <div class="col-12 my-4">
+            <select class="form-control" (change)="onItemChange($event)" style="border: 1px solid #ced4da;border-radius: 0.25rem;">
+              <option value='certificados'>CERTIFICADOS</option>
+              <option value='polizas'>PÓLIZAS</option>
+              <!--<option value='formularios'>FORMULARIOS</option>-->
+            </select>
+          </div>
+          
+          <div class="col-10 mx-auto" *ngIf="documento === 'certificados'">
+            <div class="row pb-1" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Certificado<br/>de Pensión</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('pension')" class="float-right mt-1"><img src="assets/img/descargar.svg" style="width:63px;"/></div>
+              </div>
+            </div>
+            <div class="row pb-1 mt-2" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Certificado<br/>de Rentas</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('rentas')" class="float-right mt-1"><img src="assets/img/descargar.svg" style="width:63px;"/></div>
+              </div>
+            </div>
+            <div class="row pb-1 mt-2" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Certificado<br/>Carga Familiar</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('cargas')" class="float-right mt-1"><img src="assets/img/descargar.svg" style="width:63px;"/></div>
+              </div>
+            </div>
+            <div class="row pb-1 mt-2" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Certificado<br/>Tributario</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDocTributario()" class="float-right mt-1"><img src="assets/img/descargar.svg" style="width:63px;"/></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-10 mx-auto" *ngIf="documento === 'polizas'">
+            <div class="row pb-1" style="border-bottom:#8A999A 1px solid;" *ngFor="let pp of polizas">
+              <div class="col-6">
+                <h4 class="mt-3">Pol {{ pp }}</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarPoliza(pp)" class="float-right mt-1"><img src="assets/img/descargar.svg" style="width:63px;"/></div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-10 mx-auto" *ngIf="documento === 'formularios'">
+            <div class="row pb-1" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Asignación<br/>Familiar</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('pdf-formulario-asignacion')" class="float-right mt-1"><img src="assets/img/descargar.svg"></div>
+              </div>
+            </div>
+            <div class="row pb-1 mt-2" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Cónyuge</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('pdf-formulario-conyuge')" class="float-right mt-1"><img src="assets/img/descargar.svg"></div>
+              </div>
+            </div>
+            <div class="row pb-1 mt-2" style="border-bottom:#8A999A 1px solid;">
+              <div class="col-6">
+                <h4 class="mt-3">Declaración<br/>Jurada</h4>
+              </div>
+              <div class="col-6">
+                <!--<a href="" class="float-left"><img src="../assets/img/enviar.svg"></a>-->
+                <div (click)="descargarDoc('pdf-formulario-declaracion')" class="float-right mt-1"><img src="assets/img/descargar.svg"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

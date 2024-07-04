@@ -1,0 +1,54 @@
+<ion-content>
+
+  <div id="content" style="background: url(assets/img/fondo-login.png);background-position-x:center!important;background-size:386px 1500px!important; background-position-y:-40px;">
+    <div class="fondo-blanco-claro">
+      <div class="container">
+        <div class="row gris-dark">
+          <div class="col-10 mt-3">
+            <h3><span class="font-weight-bold">Hola {{ data?.nombre }}</span>!<br/>
+              <span class="font-weight-normal">Bienvenido a EuroAmerica<br/>Rentas Vitalicias</span></h3>
+          </div>
+          <div class="col-2">
+              <a *ngIf="totalNotificaciones > 0" routerLink="/members/notificaciones" routerDirection="forward">
+                <span class="badge badge-success mt-4">{{ totalNotificaciones }}</span>
+              </a>
+          </div>
+          <div class="col-11 mx-auto" style="border-bottom:1px solid #8A999A;">&nbsp;</div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-6 text-center">
+            <a routerLink="/members/liquidaciones" routerDirection="forward">
+              <img src="assets/img/liquidaciones.svg">
+            </a>
+          </div>
+          <div class="col-6 text-center">
+            <a routerLink="/members/notificaciones" routerDirection="forward">
+              <img src="assets/img/notificaciones.svg">
+              <!--<span *ngIf="totalNotificaciones > 0" class="puntito-notifica"></span>-->
+            </a>
+          </div>
+          <div class="col-6 text-center">
+            <a routerLink="/members/mis-documentos" routerDirection="forward">
+              <img src="assets/img/mis-documentos.svg">
+            </a>
+          </div>
+          <div class="col-6 text-center">
+            <a routerLink="/members/calendario-de-pagos" routerDirection="forward">
+              <img src="assets/img/calendario-pagos.svg">
+            </a>
+          </div>
+          <div class="col-6 text-center pt-3">
+            <a routerLink="/members/mis-datos" routerDirection="forward">
+              <img src="assets/img/actualizar-mis-datos.svg">
+            </a>
+          </div>
+          <div class="col-6 text-center pt-3">
+            <a routerLink="/members/centros-de-atencion" routerDirection="forward">
+              <img src="assets/img/centros-de-atencion.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

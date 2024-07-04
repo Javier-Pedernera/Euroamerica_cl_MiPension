@@ -1,0 +1,115 @@
+<ion-content>
+  <div style="background:url(assets/img/fondo-header.png) center no-repeat;background-position: top;background-size:cover;">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 py-3">
+          <img src="assets/img/logo.png" style="height:90px;width: auto;">
+        </div>
+        <div class="col-6 text-right pt-5">
+          <a routerLink="/login" routerDirection="forward" class="">
+            <img src="assets/img/volver.svg" style="height:auto;width:25px;">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5">
+          <h2 class="gris-medio">Solicitud de Clave</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-11 mx-auto">
+          <div class="row">
+            <div class="col-12">
+              <input id="rut" type="text" maxlength="12" class="form-control input-login" placeholder="Ingresa RUT" [(ngModel)]="rut" (keyup)="formatRut()" autofocus>
+              <img src="assets/img/usuario.svg" style="margin:-70px 0px 0px 15px;">
+            </div>
+            <div class="col-9 mx-auto">
+              <div (click)="consultar()" class="btn btn-primary col-12">CONSULTAR</div>
+            </div>
+            <div class="col-12" [hidden]=showCaptcha style="margin-top: 10px;">
+              <!--Aqui va el captcha-->
+              <div #captchaRef2></div>
+            </div>
+            <div class="col-12 mx-auto" style="margin-top: 20px;" [hidden]=captchaOk>
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="gris-medio">Elige tu forma de envío</h2>
+                </div>
+                <div class="col-2">
+                  <div class="custom-control form-control-lg custom-checkbox" style="margin-left:-20px;">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1" [(ngModel)]="checkboxSMS" (click) = "change1()">
+                    <label class="custom-control-label pl-2 pt-2" for="customCheck1">Cel.</label>
+                  </div>  
+                </div>
+                <div class="col-10">
+                  <input type="text" [(ngModel)]="telefono" class="form-control mt-1" disabled="disabled" style="border-color:transparent!important">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-2">
+                  <div class="custom-control form-control-lg custom-checkbox" style="margin-left:-20px;">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2" [(ngModel)]="checkboxMail" (click) = "change2()">
+                    <label class="custom-control-label pl-2 pt-2" for="customCheck2">Mail </label>
+                  </div> 
+                </div>
+                <div class="col-10">
+                  <input type="text" [(ngModel)]="email" class="form-control mt-1"  disabled="disabled" style="border-color:transparent!important">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-9 mx-auto my-3">
+                  <div [hidden]=ishidden (click)="solicitar()" class="btn btn-primary col-12 py-2">SOLICITAR</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-12 mx-auto">
+              <div [hidden]=sinData>
+                <!-- ERROR -->
+                <div class="row mt-2">
+                  <div class="col-10 mx-auto p-2 text-center" style="background:#EAEBED;">
+                    <h2 class="gris-dark">no tiene celular o<br/> correo registrado</h2>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h2 class="gris-dark text-center">Para inscribir su correo<br/> llámenos al:</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-9 mx-auto mb-3">
+                    <a href="index.html" class="btn btn-primary col-12" style="background:#8A999A!important;padding:.4rem 0.75rem!important;"><h3 class="pt-1">600 582 3000</h3></a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ÉXITO-->
+              <div [hidden]=captchaOk>
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h2 class="gris-dark text-center">Para actualizar su correo<br/> llámenos al:</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-9 mx-auto mb-3">
+                    <a href="index.html" class="btn btn-primary col-12" style="background:#8A999A!important;padding:.4rem 0.75rem!important;"><h3 class="pt-1">600 582 3000</h3></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

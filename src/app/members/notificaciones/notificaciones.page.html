@@ -1,0 +1,89 @@
+<ion-content>
+  <div id="content">
+    <div class="fondo-blanco-claro">
+      <div class="container">
+        <div class="row gris-dark">
+          <div class="col-10 mt-4">
+            <h3>Notificaciones</h3>
+          </div>
+          <div class="col-2" *ngIf="listado.length > 0">
+            <span class="badge badge-success mt-3">{{ listado.length }}</span>
+          </div>
+          <div class="col-11 mx-auto" style="border-bottom:1px solid lightgrey;margin-top:-20px;">&nbsp;
+          </div>
+        </div>
+        <div class="row gris-dark">
+          <div class="col-12 mx-auto">
+
+            <div class="row" *ngFor="let nn of listado">
+              <div class="col-12" data-toggle="collapse" data-target="#ocultar-notifica-1">
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h4>{{ nn.fecha }}</h4>
+                  </div>
+                  <div class="col-10">
+                    <h3 class="font-weight-bold">{{ nn.titulo }}</h3>
+                  </div>
+                  <div class="col-2 text-right float-right">
+                    <img src="/assets/img/collapse.svg" (click)="obtener(nn.id)">
+                  </div>
+                </div>
+              </div>
+              <!--<div class="col-11 mx-auto" style="border-bottom:1px solid lightgrey;margin-top:-20px;">&nbsp;
+              </div>
+              <div class="col-12 py-2 collapse" id="ocultar-notifica-1">
+                <p>Bienvenida a EuroAmerica, agradecemos la preferencia y confianza depositada en nosotros.<br/>
+                  Con fecha 03-06-2019 se recibe traspaso de fondos de AFP HABITAT por UF 3.342,60. Póliza 028854-A, Renta Previsional de Vejez Garantizada Diferida . Dado lo anterior, el monto de la pensión será de UF 14,15.<br/>El primer pago se realizará el día 22-06-2020. Según la forma establecida en el contrato.</p>
+              </div>-->
+            </div>
+
+            <!--<div class="row">
+              <div class="col-12" data-toggle="collapse" data-target="#ocultar-notifica-2">
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h4>13/10/2019</h4>
+                  </div>
+                  <div class="col-10">
+                    <h3 class="font-weight-bold">Crédito de Consumo<br/>Pre Aprobado</h3>
+                  </div>
+                  <div class="col-2 text-right float-right">
+                    <img src="../assets/img/collapse.svg">
+                  </div>
+                </div>
+              </div>
+              <div class="col-11 mx-auto" style="border-bottom:1px solid lightgrey;margin-top:-20px;">&nbsp;
+              </div>
+              <div class="col-12 py-2 collapse" id="ocultar-notifica-2">
+                <p>Bienvenida a EuroAmerica, agradecemos la preferencia y confianza depositada en nosotros.<br/>
+                  Con fecha 03-06-2019 se recibe traspaso de fondos de AFP HABITAT por UF 3.342,60. Póliza 028854-A, Renta Previsional de Vejez Garantizada Diferida . Dado lo anterior, el monto de la pensión será de UF 14,15.<br/>El primer pago se realizará el día 22-06-2020. Según la forma establecida en el contrato.</p>
+              </div>
+            </div>-->
+
+            <!--<div class="row">
+              <div class="col-12" data-toggle="collapse" data-target="#ocultar-notifica-3">
+                <div class="row">
+                  <div class="col-12 mt-3">
+                    <h4>13/10/2019</h4>
+                  </div>
+                  <div class="col-10">
+                    <h3 class="font-weight-bold">Información sobre<br/>mis Certificados</h3>
+                  </div>
+                  <div class="col-2 text-right float-right">
+                    <img src="../assets/img/collapse.svg">
+                  </div>
+                </div>
+              </div>
+              <div class="col-11 mx-auto" style="border-bottom:1px solid lightgrey;margin-top:-20px;">&nbsp;
+              </div>
+              <div class="col-12 py-2 collapse" id="ocultar-notifica-3">
+                <p>Bienvenida a EuroAmerica, agradecemos la preferencia y confianza depositada en nosotros.<br/>
+                  Con fecha 03-06-2019 se recibe traspaso de fondos de AFP HABITAT por UF 3.342,60. Póliza 028854-A, Renta Previsional de Vejez Garantizada Diferida . Dado lo anterior, el monto de la pensión será de UF 14,15.<br/>El primer pago se realizará el día 22-06-2020. Según la forma establecida en el contrato.</p>
+              </div>
+            </div>-->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

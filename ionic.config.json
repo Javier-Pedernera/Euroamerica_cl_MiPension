@@ -1,0 +1,7 @@
+{
+  "name": "cl.euroamerica.rentasvitalicias",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
