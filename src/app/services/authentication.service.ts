@@ -70,8 +70,8 @@ export class AuthenticationService {
       "rut": rut,
       "clave": clave,
       "tokenDevice":
-      tokenPush
-      // "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
+      // tokenPush
+      "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
     };
     console.log("credenciales de login",credentials);
 

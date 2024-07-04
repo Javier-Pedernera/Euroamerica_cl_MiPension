@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-// import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
+import { SplashScreen } from '@awesome-cordova-plugins/splash-screen/ngx';
 import { StatusBar } from '@awesome-cordova-plugins/status-bar/ngx';
 import { Push } from '@awesome-cordova-plugins/push/ngx';
 import { File } from '@awesome-cordova-plugins/file/ngx';
@@ -28,8 +28,8 @@ import { HttpConfigInterceptor } from './interceptors/http-config.interceptor';
     IonicStorageModule.forRoot(),
   ],
   providers: [
-    // StatusBar,
-    // SplashScreen,
+    StatusBar,
+    SplashScreen,
     Push,
     File,
     FileTransfer,
