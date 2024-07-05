@@ -22,7 +22,7 @@ export class SolicitudClavePage implements OnInit {
   // desarrollo
   // urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
   //produccion
-  urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  urlConsultar = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
 
   //urlConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/consultar';
 
@@ -30,7 +30,7 @@ export class SolicitudClavePage implements OnInit {
   //desarrollo
   // urlRecuperar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
   //produccion
-  urlRecuperar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
+  urlRecuperar = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/recuperar';
 
   //urlRecuperar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/recuperar';
 
@@ -48,26 +48,26 @@ export class SolicitudClavePage implements OnInit {
   rut1!: string;
 
   constructor(
-      private http: HttpClient,
-      public alertController: AlertController,
-      private cd: ChangeDetectorRef,
-      private storage: Storage,
-      private router: Router) {}
+    private http: HttpClient,
+    public alertController: AlertController,
+    private cd: ChangeDetectorRef,
+    private storage: Storage,
+    private router: Router) { }
 
   ngOnInit() {
     const grecaptcha = (window as any).grecaptcha;
     if (grecaptcha) {
       this._reCaptchaId = grecaptcha.render(this.captchaRef2.nativeElement, {
         'sitekey': this.SITE_ID,
-        'callback': (resonse:any) => this.reCapchaSuccess(resonse),
+        'callback': (resonse: any) => this.reCapchaSuccess(resonse),
         'expired-callback': () => this.reCapchaExpired()
       });
     }
   }
 
 
-  reCapchaSuccess(data:any){
-    if ( data ) {
+  reCapchaSuccess(data: any) {
+    if (data) {
       this.captchaOk = false;
       this.cd.detectChanges();
       //alert("Congratulation! reCAPTCHA verified.")
@@ -75,7 +75,7 @@ export class SolicitudClavePage implements OnInit {
     }
   }
 
-  reCapchaExpired(){
+  reCapchaExpired() {
     this.captchaOk = true;
     //alert("Oops! reCAPTCHA expired.")
     // Some logic goes here
@@ -98,33 +98,33 @@ export class SolicitudClavePage implements OnInit {
     this.telefono = '';
     this.email = '';
 
-    if ( rutValidate(this.rut) === true ) {
+    if (rutValidate(this.rut) === true) {
       this.rut1 = this.rut.replace(/\./g, '');
       console.log(this.rut1);
       this.http.post<LoginResponse>(this.urlConsultar,
-      { rut: this.rut1 }).subscribe((data) => {
-        console.log(data);
-        if ( data.success === true ) {
-          if ( data.datos.email !== null && data.datos.telefono !== null &&
-              data.datos.email.length > 0 && data.datos.telefono.length > 0 ) {
-            this.showCaptcha = false;
-            this.sinData = true;
-            this.telefono = data.datos.telefono;
-            this.email = data.datos.email;
-          } else {
-            this.sinData = false;
-          }
+        { rut: this.rut1 }).subscribe((data) => {
+          console.log(data);
+          if (data.success === true) {
+            if (data.datos.email !== null && data.datos.telefono !== null &&
+              data.datos.email.length > 0 && data.datos.telefono.length > 0) {
+              this.showCaptcha = false;
+              this.sinData = true;
+              this.telefono = data.datos.telefono;
+              this.email = data.datos.email;
+            } else {
+              this.sinData = false;
+            }
 
-        } else {
-          this.presentAlert('El usuario no esta registrado');
-        }
-      });
+          } else {
+            this.presentAlert('El usuario no esta registrado');
+          }
+        });
     } else {
       this.presentAlert('Ingrese RUT válido');
     }
   }
 
-  async presentAlert(mensaje:any) {
+  async presentAlert(mensaje: any) {
     const alert = await this.alertController.create({
       header: 'Validación',
       message: mensaje,
@@ -138,14 +138,14 @@ export class SolicitudClavePage implements OnInit {
     await alert.present();
   }
 
-  async presentOk(mensaje:any) {
+  async presentOk(mensaje: any) {
     const alert = await this.alertController.create({
       header: 'Información',
       message: mensaje,
       buttons: [{
         text: 'Aceptar',
         handler: () => {
-          this.storage.remove('credenciales').then( async (data) => {
+          this.storage.remove('credenciales').then(async (data) => {
             await this.storage.remove('huella');
             console.log('credencuales borradas...');
             this.router.navigate(['login']);
@@ -162,7 +162,7 @@ export class SolicitudClavePage implements OnInit {
 
     const medio = this.checkboxMail ? 'email' : 'sms';
 
-    const params = { rut: this.rut1, medio: medio};
+    const params = { rut: this.rut1, medio: medio };
     this.http.post<LoginResponse>(this.urlRecuperar, params).subscribe((data) => {
       console.log(data);
       this.presentOk(data.mensaje);
@@ -180,7 +180,7 @@ export class SolicitudClavePage implements OnInit {
 
     this.cd.detectChanges();
 
-    if ( this.checkboxMail === false && this.checkboxSMS === false ) {
+    if (this.checkboxMail === false && this.checkboxSMS === false) {
       this.ishidden = true;
     } else {
       this.ishidden = false;
@@ -197,7 +197,7 @@ export class SolicitudClavePage implements OnInit {
     }
     this.cd.detectChanges();
 
-    if ( this.checkboxMail === false && this.checkboxSMS === false ) {
+    if (this.checkboxMail === false && this.checkboxSMS === false) {
       this.ishidden = true;
     } else {
       this.ishidden = false;

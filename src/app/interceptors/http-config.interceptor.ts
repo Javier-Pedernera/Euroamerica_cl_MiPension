@@ -34,8 +34,9 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      // console.log("storage en el interceptor", this.storage);
-        return from(this.getToken()).pipe(
+      console.log("storage en el interceptor", this.storage);
+      
+        return from(this.storage.get(TOKEN_KEY)).pipe(
             switchMap(token => {
               console.log("token en switch",token);
 
@@ -46,6 +47,8 @@ export class HttpConfigInterceptor implements HttpInterceptor {
             return next.handle(request).pipe(
                 map((event: HttpEvent<any>) => {
                     if (event instanceof HttpResponse) {
+                      console.log("event",event);
+
                         // Cerramos el loading en el fin de la llamada
                         this.dismissLoading();
                     }

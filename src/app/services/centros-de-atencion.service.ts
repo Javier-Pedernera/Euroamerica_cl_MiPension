@@ -7,12 +7,12 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
   providedIn: 'root'
 })
 export class CentrosDeAtencionService {
-//desarrollo
-// urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/centro/localidades';
-// urlDetalle = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/centro/sucursales';
-//produccion
-  urlConsulta = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/centro/localidades';
-  urlDetalle = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/centro/sucursales';
+  //desarrollo
+  // urlConsulta = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/centro/localidades';
+  // urlDetalle = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/centro/sucursales';
+  //produccion
+  urlConsulta = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/centro/localidades';
+  urlDetalle = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/centro/sucursales';
 
   //urlConsulta = 'http://54.89.0.19:8080/eeaa-movil-web/rest/centro/localidades';
   //urlDetalle  = 'http://54.89.0.19:8080/eeaa-movil-web/rest/centro/sucursales';
@@ -24,7 +24,7 @@ export class CentrosDeAtencionService {
     return this.http.get(this.urlConsulta);
   }
 
-  detalle(localidad:any): Observable<any> {
+  detalle(localidad: any): Observable<any> {
     let params = {
       localidad: localidad
     };

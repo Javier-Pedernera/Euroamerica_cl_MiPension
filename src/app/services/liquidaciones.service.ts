@@ -8,19 +8,19 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 })
 
 export class LiquidacionesService {
-//desarrollo
-// urlLiqConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
-// urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
-//produccion
-  urlLiqConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
-  urlPdf = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+  //desarrollo
+  // urlLiqConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
+  // urlPdf = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
+  //produccion
+  urlLiqConsultar = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/liquidacion/consultar';
+  urlPdf = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/documentos/pdf';
 
   //urlLiqConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/liquidacion/consultar';
   constructor(
     private authenticationService: AuthenticationService,
     private http: HttpClient) { }
 
-  consultar(rut:any): Observable<any> {
+  consultar(rut: any): Observable<any> {
 
     let parametros = {
       rut: rut
@@ -30,7 +30,7 @@ export class LiquidacionesService {
     return this.http.post(this.urlLiqConsultar, parametros);
   }
 
-  pdf(rut:any, poliza:any, docto:any): Observable<any> {
+  pdf(rut: any, poliza: any, docto: any): Observable<any> {
 
     let parametros = {
       rut: rut,

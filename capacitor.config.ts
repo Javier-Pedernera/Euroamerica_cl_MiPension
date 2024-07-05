@@ -5,8 +5,12 @@ const config: CapacitorConfig = {
   appName: 'cl.euroamerica.rentasvitalicias',
   webDir: 'www',
   server: {
+    cleartext: true,
     androidScheme: 'https'
-  }
+  },
+  android: {
+    allowMixedContent: true
+  },
 };
 
 export default config;

@@ -19,8 +19,8 @@ export class AuthenticationService {
   // urlLogin = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/login';
   // urlConsultar = 'https://rrvvdesa.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
   //produccion
-  urlLogin = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/login';
-  urlConsultar = 'https://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
+  urlLogin = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/login';
+  urlConsultar = 'http://rrvv.euroamerica.cl/WA_RRVV/rest/usuario/consultar';
 
   //urlLogin = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/login';
   //urlConsultar = 'http://54.89.0.19:8080/eeaa-movil-web/rest/usuario/consultar';
@@ -64,16 +64,16 @@ export class AuthenticationService {
   //codigo nuevo
   async login(rut: string, clave: string) {
     const tokenPush = await this.getTokenPush();
-    console.log("tokenpush desde getToken",tokenPush);
+    console.log("tokenpush desde getToken", tokenPush);
 
     const credentials = {
       "rut": rut,
       "clave": clave,
       "tokenDevice":
-      // tokenPush
-      "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
+        // tokenPush
+        "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
     };
-    console.log("credenciales de login",credentials);
+    console.log("credenciales de login", credentials);
 
     this.http.post<LoginResponse>(this.urlLogin, credentials).subscribe((data) => {
       // console.log(data);
@@ -84,7 +84,7 @@ export class AuthenticationService {
           data2.datos.clave = clave;
           await this._storage?.set('datos', data2.datos);
           await this._storage?.set(TOKEN_KEY, data.Token);
-//seteo token push para autorizacion de rutas
+          //seteo token push para autorizacion de rutas
           await this._storage?.set('token_push', data.Token);
           this.authenticationState.next(true);
         });
