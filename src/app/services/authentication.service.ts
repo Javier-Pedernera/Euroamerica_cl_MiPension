@@ -70,10 +70,10 @@ export class AuthenticationService {
       "rut": rut,
       "clave": clave,
       "tokenDevice":
-        // tokenPush
-        "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
+        tokenPush
+        // "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
     };
-    console.log("credenciales de login", credentials);
+    // console.log("credenciales de login", credentials);
 
     this.http.post<LoginResponse>(this.urlLogin, credentials).subscribe((data) => {
       // console.log(data);
@@ -83,10 +83,12 @@ export class AuthenticationService {
           data2.datos.rut1 = rut;
           data2.datos.clave = clave;
           await this._storage?.set('datos', data2.datos);
-          await this._storage?.set(TOKEN_KEY, data.Token);
+          // await this._storage?.set(TOKEN_KEY, data.Token);
           //seteo token push para autorizacion de rutas
-          await this._storage?.set('token_push', data.Token);
-          this.authenticationState.next(true);
+          // await this._storage?.set('token_push', data.Token);
+          return this._storage?.set(TOKEN_KEY, data.Token).then(() => {
+            this.authenticationState.next(true);
+          });
         });
       } else {
         this.presentAlert(data.mensaje);

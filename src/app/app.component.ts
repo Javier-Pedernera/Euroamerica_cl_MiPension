@@ -136,9 +136,9 @@ export class AppComponent {
 
     pushObject.on('registration').subscribe((data: any) => {
       console.log('device token:', data.registrationId);
-      const deviceToken = "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
-      this.authenticationService.setTokenPush(deviceToken);
-      this.eventService.publish('tokenPush', deviceToken);
+      // const deviceToken = "dkyc-063Zm8:APA91bHjyGr1kkQ6Aqy8BXIVH9xvfMFe5rOFJM7D-_yCIg0OOEz81s7VZahw_Kgjyt-FRBsufzDJKszrbjytbMDRiCLgkw07PLu414sZdLCudSnXAUaf1GrXYY9oyf04271p-qOr2-6N"
+      this.authenticationService.setTokenPush(data.registrationId);
+      this.eventService.publish('tokenPush', data.registrationId);
     });
 
     pushObject.on('notification').subscribe((data: any) => {

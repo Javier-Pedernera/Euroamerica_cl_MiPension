@@ -55,3 +55,10 @@ import 'zone.js';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+// if (!window.queueMicrotask) {
+//   window.queueMicrotask = function(callback) {
+//     Promise.resolve().then(callback).catch(e =>
+//       setTimeout(() => { throw e; })
+//     );
+//   };
+// }
